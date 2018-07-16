@@ -5,6 +5,9 @@ require "sinatra"
 require "sinatra/reloader" if development?
 require "pry-byebug"
 require "better_errors"
+set :bind, '0.0.0.0'
+
+
 configure :development do
   use BetterErrors::Middleware
   BetterErrors.application_root = File.expand_path('..', __FILE__)
@@ -49,4 +52,10 @@ post '/auto_add_results' do
   keyword = params["keyword"]
   @results_array = recipedownloader.scrape_and_parse(keyword)
   erb :auto_add_results
+end
+
+post '/done' do
+  index = params["index_to_mark_as_done"].to_i
+  cookbook.mark_as_done(index)
+  redirect '/'
 end
