@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>
+      Add a New Recipe
+    </title>
+  </head>
+  <body>
+    <h1>Manual add</h1>
+    <form action="/recipes" method="post">
+      Name:
+      <input type="text" name="name" />
+      Description:
+      <input type="textarea" rows ="4" columns="80" name="description" />
+      URL:
+      <input type="text" name="URL" />
+      Prep Time:
+      <input type="text" name="prep_time" />
+      Cook Time:
+      <input type="text" name="difficulty" />
+      Difficulty:
+      <input type="text" name="cook_time" />
+      <input type="submit" value="submit" />
+    </form>
+    <a href="./auto_add"><h1>Add from lets cook french</h1></a>
+  </body>
+</html>

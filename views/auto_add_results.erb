@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auto Add Results</title>
+</head>
+<body>
+  <ul>
+<% @results_array.each do |result| %>
+  <form action="./recipes" method="post">
+<li>Name: <%= result[:name] %> <br/ >
+  Description: <%= result[:description] %> <br />
+  <input type="hidden" name="name" value="<%= result[:name] %>" />
+  <input type="hidden" rows ="4" columns="80" name="description" value="<%= result[:description] %>" />
+  <input type="hidden" name="URL" value="<%= result[:URL] %>" />
+  <input type="hidden" name="prep_time" value="<%= result[:prep_time] %>"/>
+  <input type="hidden" name="difficulty" value="<%= result[:difficulty] %>" />
+  <input type="hidden" name="cook_time" value="<%= result[:cook_time] %>" />
+  <input type="submit" value="Add This Recipe">
+</li>
+</form>
+<% end %>
+</ul>
+</body>
+</html>
